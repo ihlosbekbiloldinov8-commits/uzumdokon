@@ -1,0 +1,333 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
+  <header class="w-full bg-[#f3f4f6] border-b">
+    <div class="max-w-screen-xl mx-auto h-auto md:min-h-18 flex flex-col md:flex-row items-center justify-between px-4 py-3 md:py-0">
+        <a href="{% url 'home' %}">
+            <div class="flex items-center gap-2">
+              <img src="https://uzum.uz/landings/img/uzum-logo-desktop.svg" alt="" class="w-24 md:w-32">
+            </div>
+        </a>
+      <div class="flex items-center gap-3 mt-3 md:mt-0">
+
+        <button class="flex items-center gap-2 border border-gray-300 bg-white
+               h-10 md:h-11 px-3 md:px-4 rounded-xl hover:bg-gray-100 transition text-sm md:text-base">
+
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M2.36937 11.332L19.9751 4L14.7302 19.5765L10.6201 16.7444L7.85967 13.5662L2.36937 11.332Z"
+              fill="#1F2026" />
+          </svg>
+
+          <span class="text-sm md:text-base font-medium text-[#1F2026]">
+            Savol berish
+          </span>
+        </button>
+
+        <div class="relative">
+          <button id="langBtn" class="flex items-center gap-2 bg-[#e5e7eb]
+                 h-10 md:h-11 px-3 md:px-4 rounded-xl hover:bg-gray-300 transition text-sm md:text-base">
+
+            <div class="w-5 h-5 rounded-full overflow-hidden border">
+              <div class="h-1/3 bg-[#1EB53A]"></div>
+              <div class="h-1/3 bg-white"></div>
+              <div class="h-1/3 bg-[#0099FF]"></div>
+            </div>
+
+            <span class="text-sm md:text-base font-medium text-gray-800">
+              O'zbekcha
+            </span>
+
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+              <path d="M5 7L10 12L15 7" stroke="#1F2026" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <div id="langMenu"
+            class="hidden absolute right-0 mt-2 w-40 bg-white border rounded-xl shadow-lg overflow-hidden z-50">
+            <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">O'zbekcha</button>
+            <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">Русский</button>
+            <button class="block w-full text-left px-4 py-2 hover:bg-gray-100">English</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <script>
+    const btn = document.getElementById("langBtn");
+    const menu = document.getElementById("langMenu");
+
+    btn.onclick = () => menu.classList.toggle("hidden");
+
+    document.addEventListener("click", (e) => {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add("hidden");
+      }
+    });
+  </script>
+
+
+  <div class="w-full max-w-screen-xl mx-auto mt-4 md:mt-6 relative px-2 md:px-0">
+
+    <button onclick="prevSlide()" class="absolute left-1 md:left-0 top-1/2 -translate-y-1/2 z-20
+        w-10 md:w-12 h-10 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-xl md:text-2xl">
+      ‹ </button>
+
+    <div class="overflow-hidden rounded-2xl md:rounded-2xl w-full min-h-80 md:min-h-[412px] relative">
+
+
+      <div id="slider" class="flex transition-transform duration-500 h-full">
+
+
+        <div class="min-w-full h-full relative">
+          <img src="https://static.uzum.uz/Landing_Fashion_v2/1main901uz.jpg"
+            class="absolute inset-0 w-full h-full object-cover">
+
+          <div class="absolute inset-0 bg-gradient-to-r from-[#fde7c9] via-[#fde7c9]/95 to-transparent"></div>
+
+          <div class="relative z-10 h-full flex items-center px-4 md:px-12 lg:px-24 py-8 md:py-0">
+            <div class="max-w-72 md:max-w-[400px] lg:max-w-[550px]">
+              <h1 class="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight md:leading-16 text-[#0b1a44]">
+                Mening birinchi smartfonim
+              </h1>
+              <p class="mt-3 md:mt-6 text-base md:text-xl lg:text-2xl text-[#0b1a44] leading-snug md:leading-8">
+                Bolalar uchun qulay <br>
+                va foydali gadjetlar
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="min-w-full h-full">
+          <img src="https://static.uzum.uz/Landing_Fashion_v2/2main901uz.jpg" class="w-full h-full object-cover">
+        </div>
+
+        <div class="min-w-full h-full">
+          <img src="https://static.uzum.uz/Landing_Fashion_v2/3main901uz.jpg" class="w-full h-full object-cover">
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <button onclick="nextSlide()" class="absolute right-1 md:right-0 top-1/2 -translate-y-1/2 z-20
+        w-10 md:w-12 h-10 md:h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-xl md:text-2xl">
+      › </button>
+
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slider = document.getElementById("slider");
+    const totalSlides = slider.children.length;
+
+    function updateSlide() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlide();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlide();
+    }
+  </script>
+
+  <style>
+
+.marquee-wrapper{
+    width:100vw;
+    overflow:hidden;
+    background:#f3e38a;
+    border-top:1px solid #e5d56f;
+    border-bottom:1px solid #e5d56f;
+}
+
+.marquee{
+    display:flex;
+    width:max-content;
+    animation:scroll 18s linear infinite;
+    font-weight:600;
+    font-size:18px;
+}
+
+.marquee span{
+    padding:12px 28px;
+    white-space:nowrap;
+}
+
+@keyframes scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+}
+  </style>
+</head>
+
+
+
+<div class="m-0 p-0 bg-white overflow-x-hidden">
+<div class="w-full max-w-screen-xl mx-auto pt-6 md:pt-10 pb-4 md:pb-6 px-3 md:px-4">
+
+    <div class="flex justify-between items-start overflow-x-auto pb-4 gap-2 md:gap-0">
+
+        <div class="min-w-20 md:min-w-28 flex-shrink-0">
+            <img class="w-16 h-16 md:w-24 md:h-24 lg:w-24 lg:h-24 mx-auto rounded-full p-2 md:p-3" src="https://static.uzum.uz/Landing_Fashion_v2/1bkdet90126.jpg">
+            <p class="mt-2 md:mt-3 text-xs md:text-base lg:text-lg leading-4 md:leading-5 font-medium">Elektro<br>mobillar</p>
+        </div>
+
+        <div class="min-w-20 md:min-w-28 flex-shrink-0">
+            <img class="w-16 h-16 md:w-24 md:h-24 lg:w-24 lg:h-24 mx-auto rounded-full bg-gray-100 p-2 md:p-3" src="https://static.uzum.uz/Landing_Fashion_v2/2bkdet90126.jpg">
+            <p class="mt-2 md:mt-3 text-xs md:text-base lg:text-lg leading-4 md:leading-5 font-medium">Parvarish va<br>gigiyena</p>
+        </div>
+
+        <div class="min-w-20 md:min-w-28 flex-shrink-0">
+            <img class="w-16 h-16 md:w-24 md:h-24 lg:w-24 lg:h-24 mx-auto rounded-full bg-gray-100 p-2 md:p-3" src="https://static.uzum.uz/Landing_Fashion_v2/3bkdet90126.jpg">
+            <p class="mt-2 md:mt-3 text-xs md:text-base lg:text-lg leading-4 md:leading-5 font-medium">Pyure va<br>sharbatlar</p>
+        </div>
+
+        <div class="min-w-20 md:min-w-28 flex-shrink-0">
+            <img class="w-16 h-16 md:w-24 md:h-24 lg:w-24 lg:h-24 mx-auto rounded-full bg-gray-100 p-2 md:p-3" src="https://static.uzum.uz/Landing_Fashion_v2/4bkdet90126.jpg">
+            <p class="mt-2 md:mt-3 text-xs md:text-base lg:text-lg leading-4 md:leading-5 font-medium">Aravachalar va<br>avtokreslolar</p>
+        </div>
+
+        <div class="min-w-20 md:min-w-28 flex-shrink-0">
+            <img class="w-16 h-16 md:w-24 md:h-24 lg:w-24 lg:h-24 mx-auto rounded-full bg-gray-100 p-2 md:p-3" src="https://static.uzum.uz/Landing_Fashion_v2/5bkdet20226.jpg">
+            <p class="mt-2 md:mt-3 text-xs md:text-base lg:text-lg leading-4 md:leading-5 font-medium">Yangi tug'ilganlar<br>kiyimi</p>
+        </div>
+
+        <div class="min-w-20 md:min-w-28 flex-shrink-0">
+            <img class="w-16 h-16 md:w-24 md:h-24 lg:w-24 lg:h-24 mx-auto rounded-full bg-gray-100 p-2 md:p-3" src="https://static.uzum.uz/Landing_Fashion_v2/6bkdet20226.jpg">
+            <p class="mt-2 md:mt-3 text-xs md:text-base lg:text-lg leading-4 md:leading-5 font-medium">Bolalar<br>kiyimlari</p>
+        </div>
+
+        <div class="min-w-20 md:min-w-28 flex-shrink-0">
+            <img class="w-16 h-16 md:w-24 md:h-24 lg:w-24 lg:h-24 mx-auto rounded-full bg-gray-100 p-2 md:p-3" src="https://static.uzum.uz/Landing_Fashion_v2/7bkdet90126.jpg">
+            <p class="mt-2 md:mt-3 text-xs md:text-base lg:text-lg leading-4 md:leading-5 font-medium">Aqlli<br>qurilmalar</p>
+        </div>
+
+        <div class="min-w-20 md:min-w-28 flex-shrink-0">
+            <img class="w-16 h-16 md:w-24 md:h-24 lg:w-24 lg:h-24 mx-auto rounded-full bg-gray-100 p-2 md:p-3" src="https://static.uzum.uz/Landing_Fashion_v2/8bkdet90126.jpg">
+            <p class="mt-2 md:mt-3 text-xs md:text-base lg:text-lg leading-4 md:leading-5 font-medium">Nestle</p>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="marquee-wrapper">
+    <div class="marquee">
+        <span>Bepul kiyib ko'rish</span> •
+        <span>Muddatli to'lovga mumkin</span> •
+        <span>Bepul kiyib ko'rish</span> •
+        <span>Muddatli to'lovga mumkin</span> •
+        <span>Bepul kiyib ko'rish</span> •
+        <span>Muddatli to'lovga mumkin</span> •
+
+
+        <span>Bepul kiyib ko'rish</span> •
+        <span>Muddatli to'lovga mumkin</span> •
+        <span>Bepul kiyib ko'rish</span> •
+        <span>Muddatli to'lovga mumkin</span> •
+        <span>Bepul kiyib ko'rish</span> •
+        <span>Muddatli to'lovga mumkin</span> •
+    </div>
+</div>
+
+</div>
+
+
+{% load static %}
+{% block content %}
+
+<section class="flex flex-col md:flex-row gap-4 md:gap-6 w-full min-h-screen bg-gray-100 p-3 md:p-6">
+
+  <div class="w-full md:w-56 lg:w-72 bg-white p-4 md:p-6 rounded-xl shadow">
+    <h2 class="text-base md:text-lg font-semibold text-gray-800 mb-4">
+      Turkumlar
+    </h2>
+
+    <ul class="space-y-2 md:space-y-3 text-sm md:text-gray-600">
+      <li class="cursor-pointer hover:text-black">Avtotovarlar</li>
+      <li class="cursor-pointer hover:text-black">Aksessuarlar</li>
+      <li class="cursor-pointer hover:text-black">Maishiy texnika</li>
+      <li class="cursor-pointer hover:text-black">Maishiy kimyoviy moddalar</li>
+      <li class="cursor-pointer hover:text-black">Dacha, bog' va tomorqa</li>
+      <li class="cursor-pointer hover:text-black">Bolalar tovarlari</li>
+      <li class="cursor-pointer hover:text-black">Salomatlik</li>
+      <li class="cursor-pointer hover:text-black">Hayvonlar uchun tovarlar</li>
+      <li class="cursor-pointer hover:text-black">Kanselyariya tovarlari</li>
+      <li class="cursor-pointer hover:text-black">Kitoblar</li>
+      <li class="cursor-pointer hover:text-black">Go'zallik va parvarish</li>
+      <li class="cursor-pointer hover:text-black">Mebel</li>
+      <li class="cursor-pointer hover:text-black">Poyabzallar</li>
+      <li class="cursor-pointer hover:text-black">Kiyim</li>
+      <li class="cursor-pointer hover:text-black">Oziq-ovqat mahsulotlari</li>
+      <li class="cursor-pointer hover:text-black">Sport va hordiq</li>
+      <li class="cursor-pointer hover:text-black">Qurilish va ta'mirlash</li>
+    </ul>
+  </div>
+
+  <div class="w-full md:w-56 lg:w-72 bg-white shadow-lg p-4 md:p-6 rounded-xl">
+
+    <h2 class="text-base md:text-lg font-semibold mb-4">Narx, baho, so'm</h2>
+
+    <div class="flex gap-2 mb-4">
+      <input type="text" placeholder="dan 500" class="border p-2 w-1/2 rounded">
+      <input type="text" placeholder="oldin 250002500" class="border p-2 w-1/2 rounded">
+    </div>
+
+    <h3 class="font-semibold mb-3">Rang</h3>
+
+    <ul class="space-y-2 md:space-y-3">
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-red-900"></span> Jigarrang
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-red-500"></span> Qizil
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-green-500"></span> Yashil
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-yellow-700"></span> Xaki
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-purple-600"></span> Binafsharang
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-pink-400"></span> Pushti
+      </li>
+    </ul>
+
+    <h3 class="font-semibold mt-4 md:mt-6 mb-3">Brend</h3>
+
+    <div class="space-y-2">
+      <label class="flex items-center gap-2">
+        <input type="checkbox"> 5elements
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"> BAHMAL HOME
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"> BAVI
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"> bemonde
+      </label>
+    </div>
+
+  </div>
+
+</section>
+
+{% endblock %}

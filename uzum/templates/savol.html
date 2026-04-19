@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w-full h-8 bg-[#F0F2F5] ">
+   
+</div>
+
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#7000ff',
+                    'primary-hover': '#5600c2',
+                    'bg-gray': '#f4f5f5',
+                    'text-gray': '#1f2026',
+                    'text-muted': '#8b8e99',
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .dot {
+        transition: all 0.3s ease;
+    }
+
+    .dot.active {
+        background-color: white;
+        opacity: 1;
+        transform: scale(1.2);
+    }
+</style>
+
+<section class="bg-gray-100 py-10">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <h1 class="text-2xl md:text-3xl font-semibold mb-6 md:mb-8">Savollar va javoblar</h1>
+
+    <div class="flex flex-col md:flex-row gap-6 md:gap-10">
+
+      <aside class="w-full md:w-1/4">
+        <div class="space-y-6 text-gray-800">
+          
+        
+
+          <div>
+            <h3 class="font-semibold mb-3">Buyurtmani rasmiylashtirish</h3>
+            <ul class="space-y-3 text-gray-600 text-sm">
+              <li>Qanday buyurtma beriladi?</li>
+              <li>Buyurtma va promokod zaxirasi qanday ishlaydi?</li>
+            </ul>
+          </div>
+
+        </div>
+      </aside>
+
+      <div class="w-full md:w-3/4 bg-white border rounded-md p-4 md:p-8">
+
+        <h2 class="text-2xl font-semibold mb-4">Ro’yxatdan o’tish</h2>
+
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Buyurtmani rasmiylashtirib to‘lovni bajarish uchun siz ro'yxatdan o'tishingiz kerak bo'ladi.
+          Uning yordamida ma'lumotlarni doimiy ravishda to'ldirishingiz shart bo‘lmaydi.
+          Ro'yxatdan o'tish vaqti 3 daqiqadan oshmaydi.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-4">
+          Qanday qilib ilovada ro’yxatdan o’tish mumkin?
+        </h3>
+
+        <p class="mb-3 text-gray-700">
+          Uzum Market ilovasini yuklab oling:
+        </p>
+
+        <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-1">
+          <li>App Store: https://clck.ru/367gQC;</li>
+          <li>Play Marketda: https://clck.ru/367gTR.</li>
+        </ul>
+
+
+        <p class="text-gray-700 mb-4">
+          Ilovaga kirib «Kirish» tugmasini bosing va telefon raqamingizni kiriting,
+          «Kodni qabul qilish» tugmasini bosing. Sizga 4 xonali tasdiqlash kodi keladi,
+          kodni kiritasiz va o‘z shaxsiy kabinetingizga kirasiz.
+        </p>
+
+        <p class="text-gray-700 mb-4">
+          So‘ng, ekranning yuqori o‘ng qismidagi sozlama tugmasini bosasiz va
+          ushbu ma’lumotlarni kiritasiz:
+        </p>
+
+        <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-1">
+          <li>Familiya, ism, sharif;</li>
+          <li>Telefon raqami;</li>
+          <li>Elektron pochta manzili (agar istasangiz);</li>
+          <li>Tug‘ilgan sana;</li>
+          <li>Jinsingizni kiritib «Saqlash» tugmasini bosasiz.</li>
+        </ul>
+
+        <p class="text-gray-700 mb-6">
+          Shaxsiy kabinetingizdan chiqib ketish uchun, kabinet past qismida joylashgan
+          «Chiqish» tugmasini bosasiz.
+        </p>
+
+        <h3 class="text-xl font-semibold mb-3">
+          Qanday qilib saytda ro’yxatdan o’tish mumkin?
+        </h3>
+
+        <p class="text-gray-700">
+          Bizning uzum.uz sahifamizga kirib «Kirish» tugmasini bosing,
+          bu ekranning o‘ng taraf yuqori qismida bo‘ladi.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+{% endblock %}

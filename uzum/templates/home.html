@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% block content %}
+<link rel="stylesheet" href="{% static  'css/main.css'%}">
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#7000ff',
+                    'primary-hover': '#5600c2',
+                    'bg-gray': '#f4f5f5',
+                    'text-gray': '#1f2026',
+                    'text-muted': '#8b8e99',
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .dot {
+        transition: all 0.3s ease;
+    }
+
+    .dot.active {
+        background-color: white;
+        opacity: 1;
+        transform: scale(1.2);
+    }
+</style>
+<div class="w-full max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8">
+    <div class="py-3"></div>
+
+    <div class="mt-2 w-full">
+        <div class="slider-container relative rounded-2xl overflow-hidden h-64 sm:h-72 md:h-80 lg:h-96 bg-gray-100 group">
+            <div class="slider-wrapper flex h-full transition-transform duration-500 ease-in-out">
+                {% for main_banner in main_banner %}
+                <div class="slide min-w-full h-full relative z-[-1] bg-[#8B4513]">
+                    <img src="{{ main_banner.img.url }}" alt="Ayollardan mehr bilan" class="w-full h-full object-cover">
+
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-72 md:w-72 h-24 sm:h-28 bg-white/20 rounded-2xl backdrop-blur-sm border border-white/40 flex items-center justify-center px-4">
+                    <p class="text-sm sm:text-base text-center text-white font-medium">{{ main_banner.tavsifi_uchun }}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+
+            <button
+                class="prev-btn absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 w-10 h-10 rounded-full bg-white/40 hover:bg-white/90 text-text-gray flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all z-10 cursor-pointer backdrop-blur-sm">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button
+                class="next-btn absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 w-10 h-10 rounded-full bg-white/40 hover:bg-white/90 text-text-gray flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all z-10 cursor-pointer backdrop-blur-sm">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+
+            <div class="slider-dots absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-4 w-full">
+
+        <a href="{% url 'motherboard' %}"
+            class="bg-gray-100 rounded-xl px-3 sm:px-4 py-3 flex items-center gap-3 hover:bg-gray-200 transition-colors">
+            <div class="w-10 h-10 flex-shrink-0">
+                <img src="https://static.uzum.uz/static/promo_images/756b6f56-9d2d-414c-a9d3-37d40d1c808b" alt="Bear"
+                    class="w-full h-full object-contain">
+            </div>
+            <span class="font-medium text-sm leading-tight text-text-gray">Onalar va bolalar uchun</span>
+        </a>
+
+        <a href="#"
+            class="bg-gray-100 rounded-xl px-3 sm:px-4 py-3 flex items-center gap-3 hover:bg-gray-200 transition-colors">
+            <div class="w-10 h-10 flex-shrink-0 bg-primary/10 rounded-lg flex items-center justify-center">
+                <span class="text-primary text-xl font-bold">✓</span>
+            </div>
+            <span class="font-medium text-sm leading-tight text-text-gray">Arzon narxlar kafolati</span>
+        </a>
+
+        <a href="#"
+            class="bg-gray-100 rounded-xl px-3 sm:px-4 py-3 flex items-center gap-3 hover:bg-gray-200 transition-colors">
+            <div class="w-10 h-10 flex-shrink-0">
+                <img src="https://static.uzum.uz/static/promo_images/c1ade4dd-8de3-475e-9632-7ab0586ddcd9" alt="Coat"
+                    class="w-full h-full object-contain">
+            </div>
+            <span class="font-medium text-sm leading-tight text-text-gray">Zamonaviy bozor</span>
+        </a>
+
+        <a href="#"
+            class="bg-gray-100 rounded-xl px-3 sm:px-4 py-3 flex items-center gap-3 hover:bg-gray-200 transition-colors">
+            <div class="w-10 h-10 flex-shrink-0 bg-[#5e35b1] rounded-full flex items-center justify-center text-white">
+                <span class="text-base font-bold">%</span>
+            </div>
+            <span class="font-medium text-sm leading-tight text-text-gray">Foydali fevral</span>
+        </a>
+    </div>
+
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+
+        const sliderWrapper = document.querySelector('.slider-wrapper');
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dotsContainer = document.querySelector('.slider-dots');
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `dot w-1.5 h-1.5 rounded-full bg-white/50 cursor-pointer`;
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            updateSlider();
+            resetAutoPlay();
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        }
+
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        startAutoPlay();
+
+        const sliderContainer = document.querySelector('.slider-container');
+        sliderContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        sliderContainer.addEventListener('mouseleave', startAutoPlay);
+    });
+</script>
+
+
+
+
+<section class="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6">
+    <h2 class="text-xl sm:text-2xl font-bold mb-4">
+        {% trans "Ommabop mahsulotlar" %}
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+      {% for mahsulotlar in mahsulotlar %}
+    <a href="{% url 'detail' mahsulotlar.id %}">
+        <div class="bg-white rounded-xl p-2 sm:p-3 flex flex-col relative">
+            <div class="relative">
+                <img src="{{ mahsulotlar.rasm.url }}"
+                    class="w-full h-auto aspect-[292/309] object-cover rounded-lg">
+                <button class="absolute top-2 right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition-colors">
+                    <i class="fa-regular fa-heart text-gray-500 text-xs"></i>
+                </button>
+            </div>
+                {% if mahsulotlar.xaqiqiy %}
+                <div class="mt-2 flex items-center gap-1">
+                    <div class="w-4 h-4 bg-[#00AD3A] rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-check text-xs text-white"></i>
+                    </div>
+                    <span class="text-xs">{% trans "original" %}</span>
+                </div>
+                {% endif %}
+            <p class="text-base sm:text-lg font-bold text-purple-600 mt-2">{{ mahsulotlar.narxi }} <i class="fa-solid fa-credit-card"></i></p>
+
+             <span class="mb-2 text-sm sm:text-base font-bold text-[#BFBFC1]">{{ mahsulotlar.chegirma }}</span>
+                <span class="text-xs bg-yellow-400 px-1 py-0.5 rounded w-fit">332233 so'm/oyiga</span>
+            <h3 class="mb-2 text-xs sm:text-sm line-clamp-2 mt-2">{{ mahsulotlar.tavsifi }}</h3>
+            <div class="mb-2 text-xs text-gray-500">⭐️ 4.8 (1245)</div>
+            <button class="mt-auto w-full bg-purple-600 text-white text-sm py-2 rounded-lg">{% trans "Ertaga" %}</button>
+        </div>
+    </a>
+        {% endfor %}
+
+    </div>
+</section>
+
+
+{% endblock %}

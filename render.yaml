@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: uzum-market
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn Main.wsgi:application
+
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: Main.settings
+      - key: SECRET_KEY
+        value: django-insecure-g^58xmx@9$9nj2@-c9h3md37^914fnx)35(cc8oe+kx$yd^is=
+      - key: DEBUG
+        value: 'False'

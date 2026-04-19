@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-col lg:flex-row items-start justify-center">
+<div class="mr-0 lg:mr-5 w-full lg:w-72 mb-6 lg:mb-0">
+    
+  <div class="w-full lg:w-72 bg-white p-4 lg:p-6 rounded-xl shadow">
+    <h2 class="text-lg font-semibold text-gray-800 mb-4">
+      Turkumlar
+    </h2>
+
+    <ul class="space-y-3 text-gray-600">
+      <li class="cursor-pointer hover:text-black">Avtotovarlar</li>
+      <li class="cursor-pointer hover:text-black">Aksessuarlar</li>
+      <li class="cursor-pointer hover:text-black">Maishiy texnika</li>
+      <li class="cursor-pointer hover:text-black">Maishiy kimyoviy moddalar</li>
+      <li class="cursor-pointer hover:text-black">Dacha, bog‘ va tomorqa</li>
+      <li class="cursor-pointer hover:text-black">Bolalar tovarlari</li>
+      <li class="cursor-pointer hover:text-black">Salomatlik</li>
+      <li class="cursor-pointer hover:text-black">Hayvonlar uchun tovarlar</li>
+      <li class="cursor-pointer hover:text-black">Kanselyariya tovarlari</li>
+      <li class="cursor-pointer hover:text-black">Kitoblar</li>
+      <li class="cursor-pointer hover:text-black">Go‘zallik va parvarish</li>
+      <li class="cursor-pointer hover:text-black">Mebel</li>
+      <li class="cursor-pointer hover:text-black">Poyabzallar</li>
+      <li class="cursor-pointer hover:text-black">Kiyim</li>
+      <li class="cursor-pointer hover:text-black">Oziq-ovqat mahsulotlari</li>
+      <li class="cursor-pointer hover:text-black">Sport va hordiq</li>
+      <li class="cursor-pointer hover:text-black">Qurilish va ta’mirlash</li>
+    </ul>
+  </div>
+      <div class="w-full lg:w-72 bg-white mt-4 shadow-lg p-4 lg:p-6 rounded-xl">
+
+    <h2 class="text-lg font-semibold mb-4">Narx, baho, so'm</h2>
+
+    <div class="flex gap-2 mb-4">
+      <input type="text" placeholder="dan 500" class="border p-2 w-1/2 rounded">
+      <input type="text" placeholder="oldin 250002500" class="border p-2 w-1/2 rounded">
+    </div>
+
+    <h3 class="font-semibold mb-3">Rang</h3>
+
+    <ul class="space-y-3">
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-red-900"><input class="checkbox hidden" type="checkbox"></span> Jigarrang
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-red-500"><input class="checkbox hidden" type="checkbox"></span> Qizil
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-green-500"> <input class="checkbox hidden" type="checkbox"></span> Yashil
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-yellow-700"><input class="checkbox hidden" type="checkbox"></span> Xaki
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-purple-600"><input class="checkbox hidden" type="checkbox"></span> Binafsharang
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="w-4 h-4 rounded-full bg-pink-400"><input class="checkbox hidden" type="checkbox"></span> Pushti
+      </li>
+      
+    </ul>
+
+    <h3 class="font-semibold mt-6 mb-3">Brend</h3>
+
+    <div class="space-y-2">
+      <label class="flex items-center gap-2">
+        <input type="checkbox"> 5elements
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"> BAHMAL HOME
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"> BAVI
+      </label>
+      <label class="flex items-center gap-2">
+        <input type="checkbox"> bemonde
+      </label>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+    {% for mahsulotlar in mahsulotlar %}
+    <h2>{{ turi }}</h2>
+       <a href="{% url 'detail' mahsulotlar.id %}">
+           <div class="bg-white rounded-xl p-3 flex flex-col relative">
+<img src="{{ mahsulotlar.rasm.url }}"
+                    class="w-full h-64 sm:h-72 object-cover rounded-lg relative">
+                    <div class="absolute top-2 right-2 z-10 bg-white w-6 h-6 flex items-center justify-center rounded-full shadow"><i class="fa-regular fa-heart"></i></div>
+                    {% if mahsulotlar.xaqiqiy %}
+                    <div class="w-14 h-5 bg-white absolute flex items-center justify-center rounded-sm gap-1 top-48 left-6">
+                        <div class="w-3.5 h-3.5 bg-green-600 rounded-full flex items-center justify-center ">
+                            <i class="fa-solid fa-check text-xs text-white"></i>
+                        </div>
+                        <span class="text-xs">original</span>
+                    </div>
+                    {% endif %}
+                <p class=" text-base sm:text-lg font-bold text-purple-600">{{ mahsulotlar.narxi }} <i class="fa-solid fa-credit-card"></i></p>
+
+                <span class="mb-2 text-base sm:text-base font-bold text-gray-400 -mt-1">{{ mahsulotlar.chegirma }}</span>
+                    <span class="text-xs bg-yellow-400 w-24 h-5 px-1 rounded-sm -mt-2">332233 so'm/oyiga</span>
+               <h3 class="mb-2 text-sm sm:text-base line-clamp-2">{{ mahsulotlar.tavsifi }}</h3>
+               <div class="mb-2 text-xs text-gray-500">⭐️ 4.8 (1245)</div>
+               <button class="mt-auto w-full bg-purple-600 text-white text-sm py-2 rounded-lg"><i class="fa-light fa-bag-shopping"></i><i class="fa-solid fa-bag-shopping"></i> Ertaga</button>
+           </div>
+       </a>
+           {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

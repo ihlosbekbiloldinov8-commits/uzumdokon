@@ -1,0 +1,29 @@
+
+
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logout</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <style>
+ 
+    </style>
+   <div class="text-center flex items-center justify-center flex-col">
+    <div>
+    <h1 class="w-[700px] h-[60px] bg-red-600 text-white mt-[10px] rounded-[10px] p-[10px] text-[22px]">Siz muvafaqiyatli tizimdan chiqib ketingiz!</h1>
+
+    <a class="w-[230px] h-[40px] bg-green-600 rounded-[10px] p-[10px] text-white mt-[20px] inline-block" href="{% url 'login' %}">Kirish</a>
+    <a class="w-[230px] h-[40px] bg-green-600 rounded-[10px] p-[10px] text-white mt-[20px] inline-block" href="{% url 'register' %}">Ro'yhatdan o'tish</a>
+    </div>
+</div> 
+</body>
+</html>
+
+{% endblock %}

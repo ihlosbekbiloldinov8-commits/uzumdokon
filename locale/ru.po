@@ -1,0 +1,64 @@
+# Russian translations
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Toshkent"
+msgstr "Ташкент"
+
+msgid "Topshirish punktlari"
+msgstr "Пункты выдачи"
+
+msgid "Sotuvchi bo'lish"
+msgstr "Стать продавцом"
+
+msgid "Topshirish punktini ochish"
+msgstr "Открыть пункт выдачи"
+
+msgid "Savol-javob"
+msgstr "Вопрос-ответ"
+
+msgid "Buyurtmalarim"
+msgstr "Мои заказы"
+
+msgid "Kirish"
+msgstr "Вход"
+
+msgid "uzum market"
+msgstr "uzum market"
+
+msgid "Mahsulotlar izlash"
+msgstr "Поиск товаров"
+
+msgid "Biz haqimizda"
+msgstr "О нас"
+
+msgid "Foydalanuvchilarga"
+msgstr "Покупателям"
+
+msgid "Tadbirkorlarga"
+msgstr "Продавцам"
+
+msgid "Ilovani yuklab olish"
+msgstr "Скачать приложение"
+
+msgid "Biz bilan bog'lanish"
+msgstr "Связаться с нами"
+
+msgid "Uzumda soting"
+msgstr "Продавать на Uzum"
+
+msgid "Maxfiylik kelishuvi"
+msgstr "Политика конфиденциальности"
+
+msgid "Foydalanuvchi kelishuvi"
+msgstr "Пользовательское соглашение"
+
+msgid "Ommabop mahsulotlar"
+msgstr "Популярные товары"
+
+msgid "original"
+msgstr "оригинал"
+
+msgid "Ertaga"
+msgstr "Завтра"

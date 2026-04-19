@@ -1,0 +1,31 @@
+1. python -m venv .muhit
+2. .muhit/Scripts/activate
+3. pip install django
+4. pip install pillow
+5. django-admin startproject Main .
+6. django-admin startapp uzum
+7. python manage.py runserver
+    
+startproject
+startapp
+pillow ----- db rasm olib kelganda kerak boladi
+
+
+
+
+
+filter uchun kodlar
+
+views
+
+    def filtered_products(request):
+    
+    
+
+html 
+
+
+
+
+<a href="{% url 'filtered_products' %}?turi=Bahorgi Kalleksiya">
+        </a>

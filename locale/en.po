@@ -1,0 +1,64 @@
+# English translations
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Toshkent"
+msgstr "Tashkent"
+
+msgid "Topshirish punktlari"
+msgstr "Pickup points"
+
+msgid "Sotuvchi bo'lish"
+msgstr "Become a seller"
+
+msgid "Topshirish punktini ochish"
+msgstr "Open pickup point"
+
+msgid "Savol-javob"
+msgstr "FAQ"
+
+msgid "Buyurtmalarim"
+msgstr "My orders"
+
+msgid "Kirish"
+msgstr "Login"
+
+msgid "uzum market"
+msgstr "uzum market"
+
+msgid "Mahsulotlar izlash"
+msgstr "Search products"
+
+msgid "Biz haqimizda"
+msgstr "About us"
+
+msgid "Foydalanuvchilarga"
+msgstr "For customers"
+
+msgid "Tadbirkorlarga"
+msgstr "For sellers"
+
+msgid "Ilovani yuklab olish"
+msgstr "Download app"
+
+msgid "Biz bilan bog'lanish"
+msgstr "Contact us"
+
+msgid "Uzumda soting"
+msgstr "Sell on Uzum"
+
+msgid "Maxfiylik kelishuvi"
+msgstr "Privacy policy"
+
+msgid "Foydalanuvchi kelishuvi"
+msgstr "Terms of use"
+
+msgid "Ommabop mahsulotlar"
+msgstr "Popular products"
+
+msgid "original"
+msgstr "original"
+
+msgid "Ertaga"
+msgstr "Tomorrow"

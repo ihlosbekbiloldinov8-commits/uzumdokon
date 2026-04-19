@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="w-full min-h-screen bg-gray-100 flex justify-center items-start px-4 py-10 md:px-6 lg:px-8">
+  <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+
+    <div class="col-span-1 bg-white rounded-xl p-4 md:p-6 shadow">
+      <h2 class="text-lg md:text-xl font-semibold mb-4">Uzum</h2>
+      <ul class="space-y-2 text-gray-600">
+        <li class="font-medium text-black">Topshirish punktlari</li>
+        <li class="hover:text-black cursor-pointer">Vakansiyalar</li>
+      </ul>
+    </div>
+
+    <div class="col-span-1 md:col-span-2 lg:col-span-3 bg-white rounded-xl p-4 md:p-6 lg:p-8 shadow">
+      <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-2">Topshirish punkti</h1>
+      <p class="text-gray-500 mb-4 md:mb-6 text-sm md:text-base">
+        O'zbekiston 536 ta shahridagi topshirish punktlari
+      </p>
+
+      <div class="mb-4 md:mb-6">
+        <label class="block text-sm text-gray-500 mb-2">Shahar</label>
+        <select class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+          <option>Toshkent</option>
+        </select>
+      </div>
+
+      <div class="border rounded-xl p-3 md:p-4 lg:p-6 space-y-2">
+        <p class="text-gray-700 font-medium text-sm md:text-base">
+          Toshkent sh., Mirobod tumani, Mehrjon ko'chasi, 2 uy
+        </p>
+
+        <div class="text-gray-600 text-sm space-y-1">
+          <p>Dushanba: 10:00 - 20:00</p>
+          <p>Seshanba: 10:00 - 20:00</p>
+          <p>Chorshanba: 10:00 - 20:00</p>
+          <p>Payshanba: 10:00 - 20:00</p>
+          <p>Juma: 10:00 - 20:00</p>
+          <p>Shanba: 10:00 - 20:00</p>
+          <p>Yakshanba: 10:00 - 20:00</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

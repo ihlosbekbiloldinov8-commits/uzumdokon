@@ -1,0 +1,418 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+<div
+  id="stickyNav"
+  class="fixed top-0 left-0 w-full bg-white shadow-md z-50 opacity-0 -translate-y-6 transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto p-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img
+        src="{{ mahsulotlar.rasm.url }}"
+        class="w-16 h-16 object-cover rounded-lg border"
+      />
+
+      <div>
+        <h2 class="text-lg font-semibold text-gray-800">
+          {{ mahsulotlar.tavsifi|truncatechars:40 }}
+        </h2>
+
+        <div class="text-sm text-gray-500">
+          ⭐️ 4.9 • 6034 sharh • 27000+ buyurtma
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <div>
+        <p class="text-2xl font-bold text-[#7000FF]">
+          {{ mahsulotlar.chegirma }} so'm
+        </p>
+        <p class="text-sm text-gray-400 line-through">
+          {{ mahsulotlar.narxi }} so'm
+        </p>
+      </div>
+
+      <button
+        class="bg-[#7000FF] text-white px-8 py-2 rounded-xl hover:bg-purple-800"
+      >
+        Savatga qo‘shish
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto px-4 mt-6 md:px-6 lg:px-8">
+  <div class="flex flex-col lg:flex-row gap-5 lg:gap-5">
+    <div class="w-full lg:max-w-3xl">
+      <div class="max-w-3xl">
+        <h1 class="font-semibold text-xl md:text-2xl lg:text-3xl">{{ mahsulotlar.tavsifi }}</h1>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-start gap-3 md:gap-2.5 mt-8 md:mt-10">
+        <img
+          class="w-full md:w-80 h-auto md:h-96 rounded-lg md:rounded-lg object-cover"
+          src="{{ mahsulotlar.rasm.url }}"
+          alt=""
+        />
+
+        {% if mahsulotlar.ikkinchi_rasm %}
+        <img
+          class="w-full md:w-80 h-auto md:h-96 rounded-lg md:rounded-lg object-cover"
+          src="{{ mahsulotlar.ikkinchi_rasm.url }}"
+          alt=""
+        />
+        {% endif %}
+      </div>
+      <div class="wrapper_info mt-8 md:mt-10">
+        <div class="flex flex-col md:flex-row">
+            <li class="md:ml-6 w-full md:w-auto">Zichlik: 80 g/m2</li>
+            <li class="md:ml-6">Format: A4, 21 * 29.7 sm</li>
+        </div>
+        <div class="flex flex-col md:flex-row mt-3 md:mt-2">
+            <li class="md:ml-6 w-full md:w-auto">Chop etish turi: suvda eruvchan siyoh, lazer, pigmentli siyoh</li>
+            <li class="md:ml-6">Format: A4, 21 * 29.7 sm</li>
+        </div>
+        <button
+            class="px-4 py-2 md:pl-3 md:pr-3 md:pt-2 md:pb-2 w-auto md:w-44 font-bold bg-black text-base md:text-lg text-white rounded-full mt-4"
+            type="submit">Mahsulot tavsifi</button>
+        </div>
+        <div class="svetacopy mt-5 md:mt-5">
+            <p>Maxsulot haqida: {{ mahsulotlar.tavsifi }}</p>
+    
+        </div>
+        <img src="https://images.uzum.uz/crokgvchug2lhico3bn0/original.jpg" alt="" class="w-full h-auto">
+    </div>
+    </div>
+
+    <div class="w-full lg:w-auto">
+      <section>
+        <div class="text-lg md:text-xl mb-4 md:mb-5">
+          Цвет: <span class="font-bold">{{ mahsulotlar.rangi }}</span>
+        </div>
+
+        <div class="flex gap-4 md:gap-5 mb-6 md:mb-8">
+          <div
+            class="w-24 md:w-28 h-32 md:h-40 bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="https://images.uzum.uz/d55p53bs2tab83s82rag/t_product_240_high.jpg"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="text-base md:text-lg mb-4 md:mb-5">
+          Stol uzunligi: <span class="font-bold">120sm</span>
+        </div>
+
+        <div class="flex gap-3 md:gap-5 mb-4 md:mb-5 flex-wrap">
+          <button
+            class="px-5 md:px-6 py-2 md:py-3 rounded-xl border-2 border-black bg-white hover:bg-gray-50"
+          >
+            120sm
+          </button>
+
+          <button
+            class="px-5 md:px-6 py-2 md:py-3 rounded-xl border-2 border-black bg-white hover:bg-gray-50"
+          >
+            140sm
+          </button>
+        </div>
+      </section>
+      <div
+        id="buyBox"
+        class="w-full md:max-w-md min-h-72 md:min-h-96 p-3 md:p-2.5 border rounded-lg md:rounded"
+      >
+        <div class="w-full md:max-w-md bg-white rounded-2xl p-4 space-y-4 shadow">
+          <div
+            class="bg-gradient-to-r from-purple-700 to-purple-500 text-white rounded-xl px-4 py-3 flex justify-between items-center"
+          >
+            <span class="font-semibold">Foydali fevral</span>
+            <span class="bg-white/20 text-xs px-3 py-1 rounded-full"
+              >⏱️ 3 KUN QOLDI</span
+            >
+          </div>
+
+          <div>
+            <span class="bg-pink-500 text-white text-xs px-2 py-1 rounded">
+              ARZON NARX KAFOLATI
+            </span>
+
+            <h1 class="text-3xl font-bold text-purple-600 mt-2">
+              {{ mahsulotlar.chegirma }} so'm
+            </h1>
+
+            <p class="text-gray-500">
+              Uzum kartasiz Uzum {{ mahsulotlar.narxi }} so'm
+              <span class="line-through text-gray-400">209 990</span>
+            </p>
+          </div>
+        </div><div class="p-3 md:p-3 rounded-2xl w-full md:w-96 space-y-4">
+          <button class="w-full md:w-80 h-12 md:h-14 rounded-xl text-white bg-purple-700">
+            <div>Savatga qo‘shish</div>
+            <div class="text-sm opacity-90">Ertaga yetkazib beramiz</div>
+          </button>
+
+          <div class="space-y-2 text-sm">
+            <div class="flex gap-2">
+              <span>{{ mahsulotlar.soni }} dona xarid qilish mumkin</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <img
+                class="w-8"
+                src="https://static.uzum.uz/market/product-action/badge_bought.png"
+              />
+
+              <span>Bu haftada 62 kishi sotib oldi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mini w-full md:max-w-sm border-2 mt-5 md:mt-5 border-gray-300 rounded-lg p-4">
+        <h1 class="text-lg md:text-xl font-bold mb-4">Ertaga yetkazib beramiz</h1>
+        <p class="text-gray-600">Topshirish punktiga yoki kuryer orqali</p>
+    </div>
+    <div class="main w-full md:max-w-sm border-2 border-gray-300 rounded-lg p-4 mt-4">
+        <span>
+            <h2 class="text-sm md:text-sm font-semibold">Qulay usulda xavfsiz toʻlov</h2>
+            <p class="text-gray-600 text-sm mt-2">Karta orqali, naqd pulda yoki boʻlib toʻlang</p>
+        </span>
+
+        <div class="kartalar border-b border-gray-400 mt-3 pb-3">
+            <h2 class="text-sm md:text-sm font-semibold">Karta usullari</h2>
+            <img class="mt-2 w-full max-w-48" src="https://images.uzum.uz/crokgvchug2lhico3bn0/uzum_pay.png" alt="">
+        </div>
+
+        <div class="Qaytarish oson va tez">
+            <span>
+                <h2 class="text-xs md:text-xs font-semibold mt-4">Qaytarish oson va tez</h2>
+                <span class="text-xs md:text-xs text-gray-500 mt-2 block w-full md:max-w-72">Tovarlarni 10 kun ichida qabul qilamiz va
+                    darhol pulini qaytaramiz. <a class=" text-blue-500 hover:underline" href="#">Batafsil</a>
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="world w-full md:max-w-sm border-2 border-gray-400 rounded-lg p-4 mt-4">
+        <div class="flex items-start">
+            <div class="img">
+                <img class="w-14 h-14 md:w-14 md:h-14 rounded-lg md:rounded-lg"
+                    src="https://images.uzum.uz/ccvso7v0tgqvlm57tbdg/shop_avatar_56_low.jpg" alt="">
+            </div>
+            <div class="info ml-3 md:ml-4">
+                <div>
+                    <h2 class="text-sm md:text-sm font-bold mt-1">
+                        World of stationery
+                    </h2>
+                    <span class="text-xs md:text-xs flex font-semibold flex-wrap">
+                        ⭐️ 4.9 <p class="ml-1 md:ml-1 text-gray-500">63990 Baxo</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <button class="p-4 w-full md:max-w-80 bg-gray-300 text-black rounded-md mt-4 hover:bg-gray-400" type="submit">Do'konga
+            o'tish</button>
+    </div>
+    </div>
+  </div>
+</div>
+
+      <div class="flex flex-col md:flex-row items-start gap-3 md:gap-2.5 mt-8 md:mt-10">
+        <img
+          class="w-full md:w-80 h-auto md:h-96 rounded-lg md:rounded-lg object-cover"
+          src="{{ mahsulotlar.rasm.url }}"
+          alt=""
+        />
+
+        {% if mahsulotlar.ikkinchi_rasm %}
+        <img
+          class="w-full md:w-80 h-auto md:h-96 rounded-lg md:rounded-lg object-cover"
+          src="{{ mahsulotlar.ikkinchi_rasm.url }}"
+          alt=""
+        />
+        {% endif %}
+      </div>
+      <div class="wrapper_info mt-8 md:mt-10">
+        <div class="flex flex-col md:flex-row">
+            <li class="md:ml-6 w-full md:w-auto">Zichlik: 80 g/m2</li>
+            <li class="md:ml-6">Format: A4, 21 * 29.7 sm</li>
+        </div>
+        <div class="flex flex-col md:flex-row mt-3 md:mt-2">
+            <li class="md:ml-6 w-full md:w-auto">Chop etish turi: suvda eruvchan siyoh, lazer, pigmentli siyoh</li>
+            <li class="md:ml-6">Format: A4, 21 * 29.7 sm</li>
+        </div>
+        <button
+            class="px-4 py-2 md:pl-3 md:pr-3 md:pt-2 md:pb-2 w-auto md:w-44 font-bold bg-black text-base md:text-lg text-white rounded-full mt-4"
+            type="submit">Mahsulot tavsifi</button>
+        </div>
+        <div class="svetacopy mt-5 md:mt-5">
+            <p>SvetoСopy qog'ozi kundalik ofis ishlari uchun mo'ljallangan. Barcha toifadagi nusxa ko'chirish va
+                printerlar uchun javob beradi.</p>
+            <p>SvetoСopy "Ofis qog'ozi" toifasidagi 1-raqamli brend bo'lib, ofis qog'ozining har ikkinchi iste'molchisi
+                brend haqidagi bilimlari haqida so'ralganda, birinchi navbatda SvetoСopy * deb nom beradi.
+                "International Paper" ishlab chiqaruvchisi o'z sohasida dunyoning yetakchi yetakchilaridan biri
+                hisoblanadi. Brend 1996 yilda bozorda paydo bo'lgan va SvetoСopy Rossiyada ishlab chiqarilgan va chet
+                eldan keltirilmagan birinchi ofis qog'ozi bo'ldi.</p>
+            <p>SvetoСopy Classic qog'ozi 20 yildan ortiq vaqt davomida ish va hayotni yaxshilaydi va optimal qattiqlik
+                va qalinlik bilan ajralib turadi. Funktsiyalar to'plami va ishlash muddatidan qat'i nazar, har qanday
+                printer va nusxa ko'chirish mashinasi uchun ideal.</p>
+            <p>Kerakli qat'iylik printerda qog'oz tiqilib qolishining oldini olishga imkon beradi va optimal namlik
+                varaqning burishishini oldini oladi. Yuqori shaffoflik matnni yaxshi o'qishni ta'minlaydi. Har qanday
+                formatdagi SvetoСopy (A4 va A3) "C" sifat toifasiga kiradi. Ushbu turdagi qog'oz juda yaxshi variant
+                bo'lib, turli ofis jihozlarida foydalanish uchun mos keladi. Tejamkorlik sizga hujjatlarni istalgan
+                hajmda nusxalash va chop etish imkonini beradi.</p>
+        </div>
+        <img src="https://images.uzum.uz/crokgvchug2lhico3bn0/original.jpg" alt="" class="w-full h-auto">
+    </div>
+    </div>
+
+    <div class="w-full lg:w-auto">
+      <section>
+        <div class="text-lg md:text-xl mb-4 md:mb-5">
+          Цвет: <span class="font-bold">{{ mahsulotlar.rangi }}</span>
+        </div>
+
+        <div class="flex gap-4 md:gap-5 mb-6 md:mb-8">
+          <div
+            class="w-24 md:w-28 h-32 md:h-40 bg-white rounded-xl shadow-md flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src="https://images.uzum.uz/d55p53bs2tab83s82rag/t_product_240_high.jpg"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="text-base md:text-lg mb-4 md:mb-5">
+          Stol uzunligi: <span class="font-bold">120sm</span>
+        </div>
+
+        <div class="flex gap-3 md:gap-5 mb-4 md:mb-5 flex-wrap">
+          <button
+            class="px-5 md:px-6 py-2 md:py-3 rounded-xl border-2 border-black bg-white hover:bg-gray-50"
+          >
+            120sm
+          </button>
+
+          <button
+            class="px-5 md:px-6 py-2 md:py-3 rounded-xl border-2 border-black bg-white hover:bg-gray-50"
+          >
+            140sm
+          </button>
+        </div>
+      </section>
+      <div
+        id="buyBox"
+        class="w-full md:max-w-md min-h-72 md:min-h-96 p-3 md:p-2.5 border rounded-lg md:rounded"
+      >
+        <div class="w-full md:max-w-md bg-white rounded-2xl p-4 space-y-4 shadow">
+          <div
+            class="bg-gradient-to-r from-purple-700 to-purple-500 text-white rounded-xl px-4 py-3 flex justify-between items-center"
+          >
+            <span class="font-semibold">Foydali fevral</span>
+            <span class="bg-white/20 text-xs px-3 py-1 rounded-full"
+              >⏱️ 3 KUN QOLDI</span
+            >
+          </div>
+
+          <div>
+            <span class="bg-pink-500 text-white text-xs px-2 py-1 rounded">
+              ARZON NARX KAFOLATI
+            </span>
+
+            <h1 class="text-3xl font-bold text-purple-600 mt-2">
+              {{ mahsulotlar.chegirma }} so'm
+            </h1>
+
+            <p class="text-gray-500">
+              Uzum kartasiz Uzum {{ mahsulotlar.narxi }} so'm
+              <span class="line-through text-gray-400">209 990</span>
+            </p>
+          </div>
+        </div><div class="p-3 md:p-3 rounded-2xl w-full md:w-96 space-y-4">
+          <button class="w-full md:w-80 h-12 md:h-14 rounded-xl text-white bg-purple-700">
+            <div>Savatga qo‘shish</div>
+            <div class="text-sm opacity-90">Ertaga yetkazib beramiz</div>
+          </button>
+
+          <div class="space-y-2 text-sm">
+            <div class="flex gap-2">
+              <span>{{ mahsulotlar.soni }} dona xarid qilish mumkin</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <img
+                class="w-8"
+                src="https://static.uzum.uz/market/product-action/badge_bought.png"
+              />
+
+              <span>Bu haftada 62 kishi sotib oldi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mini w-full md:max-w-sm border-2 mt-5 md:mt-5 border-gray-300 rounded-lg p-4">
+        <h1 class="text-lg md:text-xl font-bold mb-4">Ertaga yetkazib beramiz</h1>
+        <p class="text-gray-600">Topshirish punktiga yoki kuryer orqali</p>
+    </div>
+    <div class="main w-full md:max-w-sm border-2 border-gray-300 rounded-lg p-4 mt-4">
+        <span>
+            <h2 class="text-sm md:text-sm font-semibold">Qulay usulda xavfsiz toʻlov</h2>
+            <p class="text-gray-600 text-sm mt-2">Karta orqali, naqd pulda yoki boʻlib toʻlang</p>
+        </span>
+
+        <div class="kartalar border-b border-gray-400 mt-3 pb-3">
+            <h2 class="text-sm md:text-sm font-semibold">Karta usullari</h2>
+            <img class="mt-2 w-full max-w-48" src="https://images.uzum.uz/crokgvchug2lhico3bn0/uzum_pay.png" alt="">
+        </div>
+
+        <div class="Qaytarish oson va tez">
+            <span>
+                <h2 class="text-xs md:text-xs font-semibold mt-4">Qaytarish oson va tez</h2>
+                <span class="text-xs md:text-xs text-gray-500 mt-2 block w-full md:max-w-72">Tovarlarni 10 kun ichida qabul qilamiz va
+                    darhol pulini qaytaramiz. <a class=" text-blue-500 hover:underline" href="#">Batafsil</a>
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="world w-full md:max-w-sm border-2 border-gray-400 rounded-lg p-4 mt-4">
+        <div class="flex items-start">
+            <div class="img">
+                <img class="w-14 h-14 md:w-14 md:h-14 rounded-lg md:rounded-lg"
+                    src="https://images.uzum.uz/ccvso7v0tgqvlm57tbdg/shop_avatar_56_low.jpg" alt="">
+            </div>
+            <div class="info ml-3 md:ml-4">
+                <div>
+                    <h2 class="text-sm md:text-sm font-bold mt-1">
+                        World of stationery
+                    </h2>
+                    <span class="text-xs md:text-xs flex font-semibold flex-wrap">
+                        ⭐️ 4.9 <p class="ml-1 md:ml-1 text-gray-500">63990 Baxo</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <button class="p-4 w-full md:max-w-80 bg-gray-300 text-black rounded-md mt-4 hover:bg-gray-400" type="submit">Do'konga
+            o'tish</button>
+    </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const stickyNav = document.getElementById("stickyNav");
+    const buyBox = document.getElementById("buyBox");
+
+    window.addEventListener("scroll", function () {
+      const buyPosition = buyBox.getBoundingClientRect().top;
+
+      if (buyPosition <= 0) {
+        stickyNav.classList.remove("opacity-0", "-translate-y-6");
+      } else {
+        stickyNav.classList.add("opacity-0", "-translate-y-6");
+      }
+    });
+  });
+</script>
+
+{% endblock %}

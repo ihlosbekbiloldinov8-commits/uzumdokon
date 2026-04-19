@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="{{ current_lang|default:'uz' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzum Market</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    {% load i18n %}
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between gap-4 py-3 text-sm">
+                <div class="flex items-center gap-4">
+                    <a href="{% url 'location' %}" class="flex items-center gap-1 text-gray-700 hover:text-violet-600">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>{% trans "Toshkent" %}</span>
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </a>
+                    <a href="{% url 'topshirish' %}" class="text-violet-600 hidden sm:inline">{% trans "Topshirish punktlari" %}</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="{% url 'satuvchi' %}" class="text-violet-600">{% trans "Sotuvchi bo'lish" %}</a>
+                    <a href="{% url 'topshirish' %}" class="text-violet-600 hidden sm:inline">{% trans "Topshirish punktini ochish" %}</a>
+                    <a href="{% url 'savol' %}" class="text-gray-600 hidden sm:inline">{% trans "Savol-javob" %}</a>
+                    <a href="{% url 'buyurtmalar' %}" class="text-gray-600 hidden sm:inline">{% trans "Buyurtmalarim" %}</a>
+                    <div class="relative group">
+                        <button class="flex items-center gap-1 hover:text-violet-600">
+                            <img src="/main/static/img/Skrinshot 2026-02-03 204335.png" class="w-4 h-3 rounded-sm" alt="lang">
+                            <span class="hidden sm:inline">
+                                {% if current_lang == 'ru' %}Русский{% elif current_lang == 'en' %}English{% else %}O'zbekcha{% endif %}
+                            </span>
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </button>
+                        <div class="absolute right-0 top-full mt-1 bg-white shadow-lg rounded-lg py-2 hidden group-hover:block min-w-[140px] z-50">
+                            <a href="{% url 'set_language' 'uz' %}" class="block px-4 py-2 hover:bg-gray-100 {% if current_lang == 'uz' or not current_lang %}bg-violet-50 text-violet-600{% endif %}">
+                                <img src="/main/static/img/Skrinshot 2026-02-03 204335.png" class="w-4 h-3 rounded-sm inline mr-2" alt="uz">O'zbekcha
+                            </a>
+                            <a href="{% url 'set_language' 'ru' %}" class="block px-4 py-2 hover:bg-gray-100 {% if current_lang == 'ru' %}bg-violet-50 text-violet-600{% endif %}">
+                                <span class="inline mr-2">🇷🇺</span>Русский
+                            </a>
+                            <a href="{% url 'set_language' 'en' %}" class="block px-4 py-2 hover:bg-gray-100 {% if current_lang == 'en' %}bg-violet-50 text-violet-600{% endif %}">
+                                <span class="inline mr-2">🇬🇧</span>English
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center gap-6 flex-wrap">
+            <a href="{% url 'home' %}" class="text-xl font-bold text-violet-600">{% trans "uzum market" %}</a>
+            
+            <div class="flex flex-1 min-w-[200px]">
+                <form action="{% url 'search' %}" method="GET" class="w-full flex">
+                    <input type="text" name="q" placeholder="{% trans 'Mahsulotlar izlash' %}" value="{{ q|default:'' }}"
+                        class="w-full max-w-lg h-10 border border-gray-300 rounded-l-lg px-4 outline-none focus:border-violet-500">
+                    <button type="submit" class="px-4 border border-l-0 border-gray-300 rounded-r-lg bg-gray-100">
+                        <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
+                    </button>
+                </form>
+            </div>
+
+            {% if request.user.is_authenticated %}
+            <div class="flex items-center gap-4">
+                <span class="text-black text-xl">{{ request.user.username }}</span>
+                <a href="{% url 'logouts' %}"><i class="fa-solid fa-arrow-right-from-bracket text-xl"></i></a>
+            </div>
+            {% else %}
+            <div class="flex items-center gap-4">
+                <a href="{% url 'register' %}" class="flex items-center gap-2 text-gray-700 hover:text-violet-600">
+                    <i class="fa-regular fa-user"></i>
+                    <span>{% trans "Kirish" %}</span>
+                </a>
+                <div class="flex items-center gap-2 text-gray-700">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="bg-white border-t mt-auto">
+        <div class="max-w-7xl mx-auto px-4 py-8 flex flex-wrap justify-between gap-8 text-sm">
+            <div class="flex flex-col min-w-[140px]">
+                <span class="text-sm font-semibold text-gray-800">{% trans "Biz haqimizda" %}</span>
+                <a class="text-gray-500 mt-2 hover:text-violet-600" href="{% url 'topshirish' %}">{% trans "Topshirish punktlari" %}</a>
+                <a class="text-gray-500 mt-1 hover:text-violet-600" href="#">Vakansiyalar</a>
+            </div>
+            <div class="flex flex-col min-w-[140px]">
+                <span class="text-sm font-semibold text-gray-800">{% trans "Foydalanuvchilarga" %}</span>
+                <a class="text-gray-500 mt-2 hover:text-violet-600" href="{% url 'contact' %}">{% trans "Biz bilan bog'lanish" %}</a>
+                <a class="text-gray-500 mt-1 hover:text-violet-600" href="{% url 'savol' %}">{% trans "Savol-javob" %}</a>
+            </div>
+            <div class="flex flex-col min-w-[140px]">
+                <span class="text-sm font-semibold text-gray-800">{% trans "Tadbirkorlarga" %}</span>
+                <a class="text-gray-500 mt-2 hover:text-violet-600" href="{% url 'satuvchi' %}">{% trans "Uzumda soting" %}</a>
+                <a class="text-gray-500 mt-1 hover:text-violet-600" href="{% url 'topshirish' %}">{% trans "Topshirish punktini ochish" %}</a>
+            </div>
+            <div class="flex flex-col min-w-[140px]">
+                <span class="text-sm font-semibold text-gray-800">{% trans "Ilovani yuklab olish" %}</span>
+                <div class="flex gap-3 mt-2">
+                    <a href="#" class="text-gray-600 hover:text-violet-600"><i class="fa-brands fa-apple"></i></a>
+                    <a href="#" class="text-gray-600 hover:text-violet-600"><i class="fa-brands fa-google-play"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 py-4 border-t flex flex-wrap justify-between items-center gap-4 text-xs text-gray-400">
+            <span>{% trans "Maxfiylik kelishuvi" %} | {% trans "Foydalanuvchi kelishuvi" %}</span>
+            <span>© 2026 «UZUM MARKET»</span>
+        </div>
+    </footer>
+</body>
+</html>

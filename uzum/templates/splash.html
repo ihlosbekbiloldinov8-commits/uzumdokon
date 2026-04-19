@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        setTimeout(function(){
+            window.location.href = (("home/"))
+        }, 2000);
+    </script>
+    <style>
+        body{
+            background-color: #21084C;
+            text-align: center;
+            font-family: sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            max-width: 80%;
+            width: 200px;
+            height: auto;
+        }
+        h1{
+            font-size: 1.25rem;
+            padding: 0 1rem;
+        }
+        @media (min-width: 768px){
+            h1{
+                font-size: 1.5rem;
+            }
+            img{
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+<img src="{% static 'img/uzumlogo.png' %}" alt="">
+<h1>uzum marketga xush kelibsiz!</h1>
+</body>
+</html>

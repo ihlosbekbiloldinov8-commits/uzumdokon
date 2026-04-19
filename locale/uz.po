@@ -1,0 +1,64 @@
+# Uzbek translations
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Toshkent"
+msgstr "Toshkent"
+
+msgid "Topshirish punktlari"
+msgstr "Topshirish punktlari"
+
+msgid "Sotuvchi bo'lish"
+msgstr "Sotuvchi bo'lish"
+
+msgid "Topshirish punktini ochish"
+msgstr "Topshirish punktini ochish"
+
+msgid "Savol-javob"
+msgstr "Savol-javob"
+
+msgid "Buyurtmalarim"
+msgstr "Buyurtmalarim"
+
+msgid "Kirish"
+msgstr "Kirish"
+
+msgid "uzum market"
+msgstr "uzum market"
+
+msgid "Mahsulotlar izlash"
+msgstr "Mahsulotlar izlash"
+
+msgid "Biz haqimizda"
+msgstr "Biz haqimizda"
+
+msgid "Foydalanuvchilarga"
+msgstr "Foydalanuvchilarga"
+
+msgid "Tadbirkorlarga"
+msgstr "Tadbirkorlarga"
+
+msgid "Ilovani yuklab olish"
+msgstr "Ilovani yuklab olish"
+
+msgid "Biz bilan bog'lanish"
+msgstr "Biz bilan bog'lanish"
+
+msgid "Uzumda soting"
+msgstr "Uzumda soting"
+
+msgid "Maxfiylik kelishuvi"
+msgstr "Maxfiylik kelishuvi"
+
+msgid "Foydalanuvchi kelishuvi"
+msgstr "Foydalanuvchi kelishuvi"
+
+msgid "Ommabop mahsulotlar"
+msgstr "Ommabop mahsulotlar"
+
+msgid "original"
+msgstr "original"
+
+msgid "Ertaga"
+msgstr "Ertaga"

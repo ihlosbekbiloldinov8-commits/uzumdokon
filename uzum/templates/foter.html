@@ -1,0 +1,86 @@
+<div class="bg-gray-50 border-t">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex flex-wrap items-center justify-between gap-4 text-sm">
+            <div class="flex items-center gap-4">
+                <a href="{% url 'location' %}" class="flex items-center gap-1 text-gray-700 hover:text-violet-600">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Toshkent</span>
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </a>
+                <a href="{% url 'topshirish' %}" class="text-violet-600 hover:text-violet-700">Topshirish punktlari</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="{% url 'satuvchi' %}" class="text-violet-600">Sotuvchi bo'lish</a>
+                <a href="{% url 'topshirish' %}" class="text-violet-600">Topshirish punktini ochish</a>
+                <a href="{% url 'savol' %}" class="text-gray-600">Savol-javob</a>
+                <a href="{% url 'buyurtmalar' %}" class="text-gray-600">Buyurtmalarim</a>
+                <div class="flex items-center gap-1">
+                    <img src="/main/static/img/Skrinshot 2026-02-03 204335.png" class="w-4 h-3 rounded-sm" alt="uz">
+                    <span>O'zbekcha</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center gap-6 flex-wrap">
+        <a href="{% url 'home' %}" class="text-xl font-bold text-violet-600">uzum market</a>
+        
+        <div class="flex flex-1 min-w-[200px]">
+            <input type="text" placeholder="Mahsulotlar va turkumlar izlash"
+                class="w-full max-w-lg h-10 border border-gray-300 rounded-l-lg px-4 outline-none focus:border-violet-500">
+            <button class="px-4 border border-l-0 border-gray-300 rounded-r-lg bg-gray-100">
+                <i class="fa-solid fa-magnifying-glass text-gray-600"></i>
+            </button>
+        </div>
+
+        {% if request.user.is_authenticated %}
+        <div class="flex items-center gap-4">
+            <span class="text-black text-xl">{{ request.user.username }}</span>
+            <a href="{% url 'logouts' %}"><i class="fa-solid fa-arrow-right-from-bracket text-xl" style="color: rgb(48, 72, 54);"></i></a>
+        </div>
+        {% else %}
+        <div class="flex items-center gap-4">
+            <a href="{% url 'register' %}" class="flex items-center gap-2 text-gray-700 hover:text-violet-600">
+                <i class="fa-regular fa-user"></i>
+                <span>Kirish</span>
+            </a>
+            <div class="flex items-center gap-2 text-gray-700">
+                <span>Saralangan</span>
+            </div>
+            <div class="flex items-center gap-2 text-gray-700">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Savat</span>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<footer class="bg-gray-50 border-t">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-wrap items-center justify-between gap-4 text-sm text-gray-600">
+        <div class="flex items-center gap-4">
+            <a href="{% url 'filtered' %}?turi=Hafta+tovarlari" class="flex items-center gap-2 hover:text-violet-600">
+                <img class="w-6 h-6" src="https://static.uzum.uz/baner/tovarnednew1612.png" alt="">
+                <span>Hafta tovarlari</span>
+            </a>
+            <a href="{% url 'filtered' %}?turi=Qishki+kolleksiya" class="flex items-center gap-2 hover:text-violet-600">
+                <img class="w-6 h-6" src="https://static.uzum.uz/banners/feshn202.png" alt="">
+                <span>Qishki kolleksiya</span>
+            </a>
+            <a href="{% url 'filtered' %}?turi=Sizning+go'zalligingiz" class="flex items-center gap-2 hover:text-violet-600">
+                <img class="w-6 h-6" src="https://static.uzum.uz/baner/krasotanew1812.png" alt="">
+                <span>Sizning go'zalligingiz</span>
+            </a>
+            <a href="{% url 'filtered' %}?turi=Xobbi+va+ijod" class="flex items-center gap-2 hover:text-violet-600">
+                <img class="w-6 h-6" src="https://static.uzum.uz/baner/hobbi2110.png" alt="">
+                <span>Xobbi va ijod</span>
+            </a>
+            <a href="{% url 'filtered' %}?turi=Smartfonlar" class="flex items-center gap-2 hover:text-violet-600">
+                <img class="w-6 h-6" src="https://static.uzum.uz/baner/smart2010.png" alt="">
+                <span>Smartfonlar</span>
+            </a>
+        </div>
+    </div>
+</nav>

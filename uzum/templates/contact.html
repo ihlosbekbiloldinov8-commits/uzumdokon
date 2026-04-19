@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div  class="bg-gray-200 flex items-center justify-center min-h-screen py-8 px-4">
+
+    <div class="w-full max-w-md md:w-full lg:w-96 min-h-64 md:min-h-72 bg-white rounded-2xl shadow-lg p-6 md:p-8 relative">
+    
+      <button class="absolute top-3 right-3 md:top-5 md:right-5 w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full text-gray-500">
+        ✕
+      </button>
+    
+      <h2 class="pr-1 md:pr-1 pt-2 md:pt-2 font-semibold mb-4">
+        Biz bilan bog'lanish
+      </h2>
+    
+      <p class="text-xs md:text-sm pr-2 md:pr-2 mb-4 md:mb-5 leading-relaxed">
+        Mutaxassislarimizga sizga qulay ijtimoiy tarmoq chati yoki <br>
+        telefon orqali savol bering:
+      </p>
+    
+      <div class="flex items-center gap-4 mb-4 md:mb-5">
+    
+        <div class=" rounded-xl flex items-center justify-center">
+         <i class="text-4xl md:text-5xl text-blue-500 fa-brands fa-telegram"></i>
+        </div>
+    
+        <div>
+          <p class="font-semibold text-xs md:text-sm">Telegram</p>
+          <p class="text-gray-500 text-xs md:text-sm">@Uzum_Support_Bot</p>
+        </div>
+    
+      </div>
+    
+      <p class="text-gray-600 text-xs md:text-sm">
+        Qo'llab-quvvatlash xizmatining email manzili:
+      </p>
+    
+      <a href="#" class="text-blue-600 font-medium text-xs md:text-sm">
+        support@uzum.com
+      </a>
+    
+    </div>
+</div>
+{% endblock %}
